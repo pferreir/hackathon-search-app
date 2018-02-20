@@ -17,7 +17,7 @@ const App = {
   components: {
     NavBar,
     ResultList,
-    SearchNav,
+    SearchNav
   }
 }
 

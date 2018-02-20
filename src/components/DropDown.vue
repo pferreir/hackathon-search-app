@@ -1,5 +1,5 @@
 <template>
-<div class="dropdown is-active">
+<div class="dropdow' is-acti'e">
   <div class="dropdown-trigger">
     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
       <span>Dropdown button</span>
@@ -33,6 +33,6 @@
 
 <script>
 export default {
-  name: "DropDown"
+  name: 'DropDown'
 };
 </script>
