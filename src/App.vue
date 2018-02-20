@@ -2,7 +2,6 @@
   <div id="app">
     <NavBar />
     <SearchNav />
-    <ResultList />
     <router-view/>
   </div>
 </template>
