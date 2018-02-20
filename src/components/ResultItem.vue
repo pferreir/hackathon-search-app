@@ -2,7 +2,7 @@
   <div class="card">
     <header class="card-header">
       <p class="card-header-title">
-        {{ result.metadata.title }}
+        {{ result.metadata.title.title }}
       </p>
     </header>
     <div class="card-content">
