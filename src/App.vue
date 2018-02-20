@@ -1,18 +1,36 @@
 <template>
   <div id="app">
-    <NavBar />
+    <NavBar :app="this" />
     <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar';
+import { connect } from 'redux-vue';
 
-export default {
-  name: 'App',
-  components: { NavBar }
+const App = {
+  name: 'App'
 }
+
+function mapStateToProps (state) {
+  return {
+    keyword: state.keyword
+  };
+}
+
+function mapActionToProps (dispatch) {
+  return {
+    search (keyword) {
+      dispatch({
+        type: 'SET_KEYWORD',
+        data: { keyword }
+      });
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapActionToProps)(App);
 </script>
 
 <style>
