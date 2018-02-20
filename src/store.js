@@ -7,6 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     keyword: '',
+    currentPage: 1,
     results: {}
   },
   mutations: {
@@ -15,11 +16,14 @@ export default new Vuex.Store({
     },
     updateResults (state, results) {
       state.results = results;
+    },
+    updatePage (state, page) {
+      state.currentPage = page;
     }
   },
   actions: {
     getResultList (context) {
-      getRecords(context.state.keyword, 25, 1).then((response) => {
+      getRecords(context.state.keyword, 25, context.state.currentPage).then((response) => {
         context.commit('updateResults', response.data);
       }).catch((e) => {
         this.errors.push(e);

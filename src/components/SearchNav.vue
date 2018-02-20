@@ -3,17 +3,20 @@
     <span class="searchnav-results">
       Found 116 results.
     </span>
+    <Paginator />
     <DropDown />
   </div>
 </template>
 
 <script>
 import DropDown from '@/components/DropDown';
+import Paginator from '@/components/Paginator';
 
 export default {
   name: 'SearchNav',
   components: {
-    DropDown
+    DropDown,
+    Paginator
   }
 };
 </script>

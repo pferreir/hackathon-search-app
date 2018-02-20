@@ -13,6 +13,7 @@ export default {
   methods: {
     updateKeyword (e) {
       this.$store.commit('updateKeyword', e.target.value);
+      this.$store.commit('updatePage', 1);
       this.$store.dispatch('getResultList');
     }
   }
