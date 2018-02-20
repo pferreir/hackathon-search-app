@@ -8,7 +8,7 @@
   <div class="navbar-end">
     <div class="navbar-item">
       <div class="field is-grouped">
-      <SearchBox :app="app" />
+      <SearchBox />
       </div>
     </div>
   </div>

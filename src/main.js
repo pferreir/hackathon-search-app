@@ -3,28 +3,23 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import store from './state';
-
-import { reduxStorePlugin } from 'redux-vue';
-
-import NavBar from '@/components/NavBar';
-import ResultList from '@/components/ResultList';
+import store from './store';
 
 // UI Toolkit
 import 'bulma';
 
 Vue.config.productionTip = false;
 
-Vue.use(reduxStorePlugin);
-
-Vue.component('NavBar', NavBar);
-Vue.component('ResultList', ResultList);
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
-  store
+  computed: {
+    search () {
+      return store.state.count
+    }
+  }
 });

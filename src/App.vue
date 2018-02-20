@@ -7,7 +7,9 @@
 </template>
 
 <script>
-import { connect } from 'redux-vue';
+import NavBar from '@/components/NavBar';
+import ResultList from '@/components/ResultList';
+
 import { getRecords } from '@/libs/api.js';
 
 // @todo use this elsewhere
@@ -16,27 +18,14 @@ getRecords('CERN', 30).then((response) => {
 });
 
 const App = {
-  name: 'App'
-}
-
-function mapStateToProps (state) {
-  return {
-    keyword: state.keyword
-  };
-}
-
-function mapActionToProps (dispatch) {
-  return {
-    search (keyword) {
-      dispatch({
-        type: 'SET_KEYWORD',
-        data: { keyword }
-      });
-    }
+  name: 'App',
+  components: {
+    NavBar,
+    ResultList
   }
 }
 
-export default connect(mapStateToProps, mapActionToProps)(App);
+export default App;
 </script>
 
 <style>

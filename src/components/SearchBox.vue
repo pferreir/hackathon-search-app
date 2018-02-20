@@ -1,6 +1,6 @@
 <template>
   <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Search" @keyup.enter="search">
+    <input class="input" type="text" placeholder="Search" @keyup.enter="updateKeyword">
     <span class="icon is-small is-left">
       <i class="fas fa-search"></i>
     </span>
@@ -10,11 +10,10 @@
 <script>
 export default {
   name: 'SearchBox',
-  props: ['app'],
   methods: {
-    search (event) {
-      this.app.search(event.target.value);
+    updateKeyword (e) {
+      this.$store.commit('updateKeyword', e.target.value);
     }
   }
-}
+};
 </script>
