@@ -16,7 +16,8 @@
           <a class="pagination-link"
              aria-label="Goto page"
              v-if="page !== '...'"
-             v-bind:class="{ 'is-current': page === currentPage }">
+             v-bind:class="{ 'is-current': page === currentPage }"
+             @click="gotoPage(page)">
             {{ page }}
           </a>
         </li>
@@ -81,6 +82,10 @@ export default {
     },
     nextPage () {
       this.$store.commit('updatePage', this.$store.state.currentPage + 1);
+      this.$store.dispatch('getResultList');
+    },
+    gotoPage (page) {
+      this.$store.commit('updatePage', page);
       this.$store.dispatch('getResultList');
     }
   }

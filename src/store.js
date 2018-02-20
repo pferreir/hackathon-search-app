@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     keyword: '',
     currentPage: 1,
-    results: {}
+    results: {},
+    loading: false
   },
   mutations: {
     updateKeyword (state, keyword) {
@@ -19,12 +20,17 @@ export default new Vuex.Store({
     },
     updatePage (state, page) {
       state.currentPage = page;
+    },
+    setLoading (state, loading) {
+      state.loading = loading;
     }
   },
   actions: {
     getResultList (context) {
+      context.commit('setLoading', true);
       getRecords(context.state.keyword, 25, context.state.currentPage).then((response) => {
         context.commit('updateResults', response.data);
+        context.commit('setLoading', false);
       }).catch((e) => {
         this.errors.push(e);
       });
