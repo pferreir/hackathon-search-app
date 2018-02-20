@@ -12,7 +12,7 @@ import NavBar from '@/components/NavBar';
 // UI Toolkit
 import 'bulma';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.use(reduxStorePlugin);
 
@@ -25,4 +25,4 @@ new Vue({
   components: { App },
   template: '<App/>',
   store
-})
+});

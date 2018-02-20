@@ -8,6 +8,13 @@
 
 <script>
 import { connect } from 'redux-vue';
+import NavBar from '@/components/NavBar';
+import { getRecords } from '@/libs/api.js';
+
+// @todo use this elsewhere
+getRecords('CERN', 30).then((response) => {
+  console.log(response);
+});
 
 const App = {
   name: 'App'
