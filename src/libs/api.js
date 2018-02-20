@@ -7,12 +7,13 @@ import axios from 'axios';
  * @param {resultsNum} resultsNum number of returned results per page
  * @param {page} page number of returned results per page
  */
-export const getRecords = (term, resultsNum, page) => {
+export const getRecords = (term, resultsNum, page, sortBy) => {
   return axios.get('https://videos.cern.ch/api/records/', {
     params: {
       page: page,
       size: resultsNum,
-      q: term
+      q: term,
+      sort: sortBy
     }
   });
 }

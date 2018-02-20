@@ -9,7 +9,8 @@ export default new Vuex.Store({
     keyword: '',
     currentPage: 1,
     results: {},
-    loading: false
+    loading: false,
+    sortBy: 'bestmatch'
   },
   mutations: {
     updateKeyword (state, keyword) {
@@ -23,12 +24,15 @@ export default new Vuex.Store({
     },
     setLoading (state, loading) {
       state.loading = loading;
+    },
+    updateSortBy (state, sortBy) {
+      state.sortBy = sortBy;
     }
   },
   actions: {
     getResultList (context) {
       context.commit('setLoading', true);
-      getRecords(context.state.keyword, 25, context.state.currentPage).then((response) => {
+      getRecords(context.state.keyword, 25, context.state.currentPage, context.state.sortBy).then((response) => {
         context.commit('updateResults', response.data);
         context.commit('setLoading', false);
       }).catch((e) => {

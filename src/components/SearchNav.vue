@@ -1,7 +1,7 @@
 <template>
   <div class="searchnav">
     <span class="searchnav-results">
-      Found 116 results.
+      Found {{ results }} results.
     </span>
     <Paginator />
     <DropDown />
@@ -17,6 +17,11 @@ export default {
   components: {
     DropDown,
     Paginator
+  },
+  computed: {
+    results () {
+      return this.$store.state.results.hits ? this.$store.state.results.hits.total : 0;
+    }
   }
 };
 </script>
