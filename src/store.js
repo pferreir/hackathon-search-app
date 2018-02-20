@@ -1,16 +1,29 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { getRecords } from '@/libs/api.js';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    keyword: ''
+    keyword: '',
+    results: {}
   },
   mutations: {
     updateKeyword (state, keyword) {
       state.keyword = keyword;
-      console.log(state.keyword);
+    },
+    updateResults (state, results) {
+      state.results = results;
+    }
+  },
+  actions: {
+    getResultList (context) {
+      getRecords(context.state.keyword, 25, 1).then((response) => {
+        context.commit('updateResults', response.data);
+      }).catch((e) => {
+        this.errors.push(e);
+      });
     }
   }
 });

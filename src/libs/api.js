@@ -5,16 +5,14 @@ import axios from 'axios';
  *
  * @param {term} term search term passed
  * @param {resultsNum} resultsNum number of returned results per page
+ * @param {page} page number of returned results per page
  */
-export const getRecords = async (term, resultsNum) => {
-  try {
-    return await axios.get('https://zenodo.org/api/records', {
-      params: {
-        q: term,
-        size: resultsNum
-      }
-    });
-  } catch (e) {
-    console.error('getRecords', e);
-  }
+export const getRecords = (term, resultsNum, page) => {
+  return axios.get('https://videos.cern.ch/api/records/', {
+    params: {
+      page: page,
+      size: resultsNum,
+      q: term
+    }
+  });
 }

@@ -16,10 +16,5 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>',
-  computed: {
-    search () {
-      return store.state.count
-    }
-  }
+  template: '<App/>'
 });

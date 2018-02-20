@@ -10,13 +10,6 @@
 import NavBar from '@/components/NavBar';
 import ResultList from '@/components/ResultList';
 
-import { getRecords } from '@/libs/api.js';
-
-// @todo use this elsewhere
-getRecords('CERN', 30).then((response) => {
-  console.log(response);
-});
-
 const App = {
   name: 'App',
   components: {
