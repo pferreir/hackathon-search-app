@@ -8,15 +8,17 @@ import store from './state';
 import { reduxStorePlugin } from 'redux-vue';
 
 import NavBar from '@/components/NavBar';
+import ResultList from '@/components/ResultList';
 
 // UI Toolkit
 import 'bulma';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.use(reduxStorePlugin);
 
 Vue.component('NavBar', NavBar);
+Vue.component('ResultList', ResultList);
 
 /* eslint-disable no-new */
 new Vue({
@@ -25,4 +27,4 @@ new Vue({
   components: { App },
   template: '<App/>',
   store
-})
+});

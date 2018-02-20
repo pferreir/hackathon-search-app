@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <NavBar :app="this" />
-    <img src="./assets/logo.png">
+    <NavBar />
+    <ResultList />
     <router-view/>
   </div>
 </template>
 
 <script>
 import { connect } from 'redux-vue';
+import { getRecords } from '@/libs/api.js';
+
+// @todo use this elsewhere
+getRecords('CERN', 30).then((response) => {
+  console.log(response);
+});
 
 const App = {
   name: 'App'
